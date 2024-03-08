@@ -7,6 +7,7 @@ editForm.addEventListener("submit", (e) => {
   const formData = {
     id: item.id,
     name: editForm.querySelector("#name").value,
+    genres: editForm.querySelector("#genres").value,
     creators: editForm.querySelector("#creators").value,
     casts: editForm.querySelector("#casts").value,
     year: editForm.querySelector("#year").value,

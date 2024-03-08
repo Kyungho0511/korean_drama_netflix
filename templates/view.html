@@ -5,14 +5,53 @@
   var names = {{ names|tojson }};
 </script>
 
-<div>
-  <h1 class="content-title">{{ item.name }}</h1>
+<div class="card">
+  <div>
+    <h1 class="content-title">{{ item.name }}</h1>
+  </div>
+  <div class="row">
+    <div class="col-md-3">
+      <img src="{{ item.img }}" alt="{{ item.name }}" />
+    </div>
+    <div class="col-md-7 text-box">
+      <p class="content-text content-summary">
+        <strong class="gray-text">Summary:</strong> {{ item.summary }}
+      </p>
+      <div class="blank-box"></div>
+      <p class="content-text">
+        <strong class="gray-text">Genres:</strong>
+      </p>
+      {% for genre in item.genres.split(', ') %} {% if genre == 'Drama' %}
+      <button class="btn btn-drama" id="view-btn">{{ genre }}</button>
+      {% elif genre == 'Medical' %}
+      <button class="btn btn-medical" id="view-btn">{{ genre }}</button>
+      {% elif genre == 'Comedy' %}
+      <button class="btn btn-comedy" id="view-btn">{{ genre }}</button>
+      {% elif genre == 'Social Issue' %}
+      <button class="btn btn-social-issue" id="view-btn">{{ genre }}</button>
+      {% elif genre == 'Romantic' %}
+      <button class="btn btn-romantic" id="view-btn">{{ genre }}</button>
+      {% elif genre == 'Historic' %}
+      <button class="btn btn-historic" id="view-btn">{{ genre }}</button>
+      {% elif genre == 'Political' %}
+      <button class="btn btn-political" id="view-btn">{{ genre }}</button>
+      {% elif genre == 'Horror' %}
+      <button class="btn btn-horror" id="view-btn">{{ genre }}</button>
+      {% elif genre == 'Thriller' %}
+      <button class="btn btn-thriller" id="view-btn">{{ genre }}</button>
+      {% endif %} {% endfor %}
+      <p class="content-text">
+        <strong class="gray-text">Creators:</strong> {{ item.creators }}
+      </p>
+      <p class="content-text">
+        <strong class="gray-text">Casts:</strong> {{ item.casts }}
+      </p>
+      <p class="content-text">
+        <strong class="gray-text">Year:</strong> {{ item.year }}
+      </p>
+    </div>
+  </div>
 </div>
-<img src="{{ item.img }}" alt="{{ item.name }}" class="col-md-3" />
-<p class="content-text"><strong>Creators:</strong> {{ item.creators }}</p>
-<p class="content-text"><strong>Casts:</strong> {{ item.casts }}</p>
-<p class="content-text"><strong>Year:</strong> {{ item.year }}</p>
-<p class="content-text"><strong>Summary:</strong> {{ item.summary }}</p>
 
 <a href="{{ url_for('edit', id=item.id) }}">
   <button class="btn btn-outline-success" id="edit-btn">Edit</button>

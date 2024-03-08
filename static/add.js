@@ -9,6 +9,7 @@ addForm.addEventListener("submit", (e) => {
   const formData = {
     id: idIndex + 1,
     name: addForm.querySelector("#name").value,
+    genres: addForm.querySelector("#genres").value,
     creators: addForm.querySelector("#creators").value,
     casts: addForm.querySelector("#casts").value,
     year: addForm.querySelector("#year").value,
