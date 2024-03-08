@@ -14,8 +14,8 @@ editForm.addEventListener("submit", (e) => {
     img: editForm.querySelector("#img").value,
   };
 
-  // Use the Fetch API to send the data
-  fetch("/edit", {
+  // Use the Fetch API to update the data
+  fetch(`/edit/${item.id}`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -25,8 +25,18 @@ editForm.addEventListener("submit", (e) => {
     .then((response) => response.json())
     .then((data) => {
       console.log("Success:", data);
+      // Redirect to the view page for the edited item
+      window.location.href = `/view/${item.id}`;
     })
     .catch((error) => {
       console.error("Error:", error);
     });
+});
+
+// Discard changes Button with confirmation from users
+document.querySelector("#discard-btn").addEventListener("click", () => {
+  const userConfirmation = confirm("Are you sure you want to discard changes?");
+  if (userConfirmation) {
+    window.location.href = `/view/${item.id}`;
+  }
 });

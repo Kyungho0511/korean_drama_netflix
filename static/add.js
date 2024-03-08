@@ -47,7 +47,7 @@ addForm.addEventListener("submit", (e) => {
       button.classList.add("btn-outline-success");
       button.textContent = `See ${formData.name.toUpperCase()} here`;
       button.addEventListener("click", () => {
-        // direct to the view page for the new drama
+        // direct to the view page for the added drama
         window.location.href = `view/${formData.id}`;
       });
 

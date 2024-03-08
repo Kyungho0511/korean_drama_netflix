@@ -148,8 +148,8 @@ def edit(id=1):
    names = [item["name"] for item in data]
    item = get_item_by_id(id)
    if request.method == 'POST':
-      json_data = request.json
-      item = json_data
+      updated_data = request.json
+      item.update(updated_data)
       return jsonify({"message": "Darama edited successfully", "status": "success"})
 
    return render_template('edit.html', names=names, item=item)
