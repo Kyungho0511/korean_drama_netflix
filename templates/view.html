@@ -1,0 +1,21 @@
+{% extends "layout.html" %} {% block content %}
+
+<script>
+  var item = {{item|tojson}};
+  var names = {{ names|tojson }};
+</script>
+
+<div>
+  <h1 class="content-title">{{ item.name }}</h1>
+</div>
+<img src="{{ item.img }}" alt="{{ item.name }}" class="col-md-3" />
+<p class="content-text"><strong>Creators:</strong> {{ item.creators }}</p>
+<p class="content-text"><strong>Casts:</strong> {{ item.casts }}</p>
+<p class="content-text"><strong>Year:</strong> {{ item.year }}</p>
+<p class="content-text"><strong>Summary:</strong> {{ item.summary }}</p>
+
+<a href="{{ url_for('edit', id=item.id) }}">
+  <button class="btn btn-outline-success" id="edit-btn">Edit</button>
+</a>
+
+{% endblock %}

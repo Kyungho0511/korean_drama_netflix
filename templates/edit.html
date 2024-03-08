@@ -1,0 +1,79 @@
+{% extends "layout.html" %} {% block content %}
+
+<script
+  type="text/javascript"
+  src="{{ url_for('static', filename = 'edit.js') }}"
+  defer
+></script>
+
+<script>
+  var names = {{ names|tojson }};
+  var item = {{ item|tojson }};
+</script>
+
+<div class="content-box">
+  <h3>Edit Drama</h3>
+  <form id="editForm">
+    <label for="name">Name:</label><br />
+    <input
+      type="text"
+      id="name"
+      name="name"
+      required
+      autocomplete="off"
+      autofocus
+      value="{{ item.name }}"
+    /><br />
+
+    <label for="creators">Creators:</label><br />
+    <input
+      type="text"
+      id="creators"
+      name="creators"
+      required
+      autocomplete="off"
+      value="{{ item.creators }}"
+    /><br />
+
+    <label for="casts">Casts:</label><br />
+    <input
+      type="text"
+      id="casts"
+      name="casts"
+      required
+      autocomplete="off"
+      value="{{ item.casts }}"
+    /><br />
+
+    <label for="year">Year:</label><br />
+    <input
+      type="number"
+      id="year"
+      name="year"
+      required
+      min="1900"
+      max="2099"
+      step="1"
+      value="{{ item.year }}"
+    /><br />
+
+    <label for="summary">Summary:</label><br />
+    <textarea id="summary" name="summary" required autocomplete="off">
+{{ item.summary }}</textarea
+    ><br />
+
+    <label for="img">Image URL:</label><br />
+    <input
+      type="url"
+      id="img"
+      name="img"
+      required
+      autocomplete="off"
+      value="{{ item.img }}"
+    /><br />
+
+    <input type="submit" value="Submit" />
+  </form>
+</div>
+
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends "layout.html" %} {% block content %}
+
+<script>
+  var names = {{ names|tojson }};
+  var results = {{ results|tojson }};
+</script>
+
+<div class="content-box">
+  <h3>Search Results</h3>
+  <div id="result-list">
+    {% if results %} {% for result in results %}
+    <div>
+      <a href="{{ url_for('view', id=result.id) }}"
+        ><img class="poster" src="{{ result.img }}" alt="{{ result.name }}"
+      /></a>
+    </div>
+    {% endfor %} {% else %}
+    <p>No results found.</p>
+    {% endif %}
+  </div>
+</div>
+
+{% endblock %}

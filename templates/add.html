@@ -1,0 +1,67 @@
+{% extends "layout.html" %} {% block content %}
+
+<script
+  type="text/javascript"
+  src="{{ url_for('static', filename = 'add.js') }}"
+  defer
+></script>
+
+<script>
+  var names = {{ names|tojson }};
+</script>
+
+<div class="content-box">
+  <div class="status_container"></div>
+  <h3>Add New Drama</h3>
+  <form id="addForm">
+    <label for="name">Name:</label><br />
+    <input
+      type="text"
+      id="name"
+      name="name"
+      required
+      autocomplete="off"
+      autofocus
+    /><br />
+
+    <label for="creators">Creators:</label><br />
+    <input
+      type="text"
+      id="creators"
+      name="creators"
+      required
+      autocomplete="off"
+    /><br />
+
+    <label for="casts">Casts:</label><br />
+    <input
+      type="text"
+      id="casts"
+      name="casts"
+      required
+      autocomplete="off"
+    /><br />
+
+    <label for="year">Year:</label><br />
+    <input
+      type="number"
+      id="year"
+      name="year"
+      required
+      min="1900"
+      max="2099"
+      step="1"
+    /><br />
+
+    <label for="summary">Summary:</label><br />
+    <textarea id="summary" name="summary" required autocomplete="off"></textarea
+    ><br />
+
+    <label for="img">Image URL:</label><br />
+    <input type="url" id="img" name="img" required autocomplete="off" /><br />
+
+    <input type="submit" value="Submit" />
+  </form>
+</div>
+
+{% endblock %}

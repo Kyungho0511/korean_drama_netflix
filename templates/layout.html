@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="data:," />
+
+    <!-- jquery -->
+    <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"
+    />
+    <!-- <script src="../static/index.js"></script> -->
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="../static/main.css" />
+
+    <script
+      type="text/javascript"
+      src="{{ url_for('static', filename = 'layout.js') }}"
+    ></script>
+
+    <title>Korean Drama on Netflix</title>
+  </head>
+
+  <body>
+    <header>
+      <nav class="navbar navbar-light bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand title" href="/">Korean Drama on Netflix</a>
+          <form class="d-flex" action="/search" method="get">
+            <input
+              class="form-control me-2"
+              id="searchbox"
+              type="search"
+              name="search_key"
+              placeholder="Type for Exploring Korean Drama!"
+              aria-label="Search"
+              required
+            />
+            <button
+              class="btn btn-outline-success"
+              id="search-btn"
+              type="submit"
+            >
+              Search
+            </button>
+          </form>
+          <a href="/add">
+            <button class="btn btn-outline-success" id="add-btn">
+              Add drama
+            </button>
+          </a>
+        </div>
+      </nav>
+    </header>
+    <br />
+
+    <div id="container">{% block content %} {% endblock %}</div>
+  </body>
+</html>

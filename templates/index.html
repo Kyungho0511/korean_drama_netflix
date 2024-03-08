@@ -1,0 +1,37 @@
+{% extends "layout.html" %} {% block content %}
+
+<script
+  type="text/javascript"
+  src="{{ url_for('static', filename = 'index.js') }}"
+></script>
+
+<script>
+  var data = {{data|tojson}};
+  var names = {{names|tojson}}
+</script>
+
+<div class="content-box">
+  <ul class="row">
+    <div class="col-md-3 poster">
+      <a href="view/1"
+        ><img
+          src="https://0.soompi.io/wp-content/uploads/2020/02/18180122/hospital-playlist11.jpeg"
+      /></a>
+    </div>
+
+    <div class="col-md-3 poster">
+      <a href="view/2">
+        <img
+          src="https://m.media-amazon.com/images/M/MV5BMTAzNzlhYjItN2MxZS00ZTg4LWFmZGQtN2I1ZWE5YjgzODY3XkEyXkFqcGdeQXVyNjk1NzU1Mjk@._V1_.jpg"
+      /></a>
+    </div>
+    <div class="col-md-3 poster">
+      <a href="view/3">
+        <img
+          src="https://images.chosun.com/resizer/49LbXaVVpnRL2YGnbhKFbWxL-J4=/540x801/smart/cloudfront-ap-northeast-1.images.arcpublishing.com/chosun/HLXDPZC4EDEZHNGFASHIDBVHSI.jpg"
+      /></a>
+    </div>
+  </ul>
+</div>
+
+{% endblock %}
